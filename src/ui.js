@@ -11,14 +11,14 @@ function handleSelect(item) {
 	}
 }
 
-function createList(items) {
+function createOption(items) {
 	return items.map(item => ({
 		...item,
 		key: item.label || item.url,
 	}));
 };
 
-const listItems = createList([
+const optionItems = createOption([
 	{
 		label: 'Website',
 		url: 'https://rex-tsou.com',
@@ -47,7 +47,7 @@ const Counter = () => {
 
 	useEffect(() => {
 		const timer = setInterval(() => {
-			setCounter(c => c++);
+			setCounter(c => c + 1);
 		}, 100);
 
 		return () => {
@@ -56,22 +56,20 @@ const Counter = () => {
 	}, []);
 
 	return (
-		<Text color="green">{counter} test</Text>
+		<Text color="green">{counter} tests passed</Text>
 	);
 };
 
-const List = () => (
+const Options = () => (
 	<>
 		<Box flexDirection="column">
 			<Box marginBottom={1} />
-			<SelectInput items={listItems} onSelect={handleSelect} />
+			<SelectInput items={optionItems} onSelect={handleSelect} />
 		</Box>
 	</>
 );
 
 export {
 	Counter,
-	List,
+	Options,
 };
-
-export default List;

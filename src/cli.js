@@ -3,7 +3,7 @@
 import { render } from 'ink';
 import React from 'react';
 import nodeBanner from 'node-banner';
-import ui from './ui.js';
+import { List } from './ui.js';
 
 (async () => {
 	await nodeBanner(
@@ -11,5 +11,9 @@ import ui from './ui.js';
 		'Hello World',
 	);
 
-	render(React.createElement(ui));
+	render(
+		<>
+		<List />
+		</>
+	);
 })();
