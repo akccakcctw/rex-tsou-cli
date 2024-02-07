@@ -10,3 +10,7 @@ npx rex-tsou
 # or
 pnpm dlx rex-tsou
 ```
+
+## Credits
+
+[@abhijithvijayan](https://github.com/abhijithvijayan)
