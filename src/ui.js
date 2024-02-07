@@ -31,6 +31,15 @@ const listItems = createList([
 		label: 'Code',
 		url: 'https://github.com/akccakcctw',
 	},
+	{
+		label: '----------',
+	},
+	{
+		label: 'Quit',
+		action() {
+			process.exit();
+		},
+	},
 ]);
 
 const Counter = () => {

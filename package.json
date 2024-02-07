@@ -16,7 +16,7 @@
   },
   "bin": "dist/cli.js",
   "files": [
-		"dist"
+    "dist"
   ],
   "license": "MIT",
   "dependencies": {
@@ -30,9 +30,6 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.23.9",
-    "@babel/core": "^7.23.9",
-    "@babel/node": "^7.23.9",
-    "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
     "rimraf": "^5.0.5"
   }
