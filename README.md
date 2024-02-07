@@ -5,10 +5,19 @@
 
 ## Usage
 
+### Run Without Installation
+
 ```sh
 npx rex-tsou
 # or
 pnpm dlx rex-tsou
+```
+
+### Installation and Run
+
+```sh
+pnpm add -g rex-tsou
+rex-tsou
 ```
 
 ## Credits
