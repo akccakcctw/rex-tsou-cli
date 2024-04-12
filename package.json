@@ -24,12 +24,12 @@
     "ink-select-input": "^5.0.0",
     "meow": "^13.2.0",
     "node-banner": "^1.4.0",
-    "open": "^10.0.3",
+    "open": "^10.1.0",
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.23.9",
-    "@babel/preset-react": "^7.23.3",
+    "@babel/cli": "^7.24.1",
+    "@babel/preset-react": "^7.24.1",
     "rimraf": "^5.0.5"
   }
 }
