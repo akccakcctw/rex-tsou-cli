@@ -3,18 +3,12 @@
 import { render } from 'ink';
 import meow from 'meow';
 import React from 'react';
-import { Options, Banner } from './ui.js';
+import App from './ui.js';
 
 meow(`
 	Usage
 		$ rex-tsou
 `, { importMeta: import.meta });
 
-(async () => {
-	render(
-		<>
-		<Banner />
-		<Options />
-		</>
-	);
-})();
+const { unmount } = render(<App />);
+
