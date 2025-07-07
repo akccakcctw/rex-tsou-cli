@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import SelectInput from 'ink-select-input';
 import open from 'open';
 import { Text, Box } from 'ink';
+import BigText from 'ink-big-text';
+import Gradient from 'ink-gradient';
 
 function handleSelect(item) {
 	if(item.url) {
@@ -60,6 +62,15 @@ const Counter = () => {
 	);
 };
 
+const Banner = () => (
+	<Box flexDirection="column" alignItems="left" marginBottom={1}>
+		<Gradient name="pastel">
+			<BigText text="Rex Tsou" />
+		</Gradient>
+		<Text>Copyright © 2025 Rex Tsou. All Rights Reserved.</Text>
+	</Box>
+);
+
 const Options = () => (
 	<>
 		<Box flexDirection="column">
@@ -72,4 +83,5 @@ const Options = () => (
 export {
 	Counter,
 	Options,
+	Banner,
 };
