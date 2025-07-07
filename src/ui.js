@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Text, Box } from 'ink';
+import React, { useState, useRef } from 'react';
+import { Text, Box, useInput } from 'ink';
 import TextInput from 'ink-text-input';
 import BigText from 'ink-big-text';
 import Gradient from 'ink-gradient';
@@ -11,9 +11,34 @@ const App = () => {
 	const [command, setCommand] = useState('');
 	const [view, setView] = useState('main'); // main or entry
 	const [showHelp, setShowHelp] = useState(false);
+	const autocompleteIndex = useRef(0);
+
+	const availableCommands = [
+		'/language',
+		'/entry',
+		'/quit',
+		'/help',
+	];
+
+	useInput((input, key) => {
+		if (key.tab) {
+			let filteredCommands = availableCommands.filter(cmd =>
+				cmd.startsWith(command)
+			);
+
+			if (filteredCommands.length === 0) {
+				filteredCommands = availableCommands; // If no match, cycle all commands
+			}
+
+			// Cycle through matching commands
+			autocompleteIndex.current = (autocompleteIndex.current + 1) % filteredCommands.length;
+			setCommand(filteredCommands[autocompleteIndex.current]);
+		}
+	});
 
 	const handleSubmit = () => {
 		setShowHelp(false); // Hide help by default on new command
+		autocompleteIndex.current = 0; // Reset autocomplete index on submit
 
 		if (command.startsWith('/language')) {
 			const newLang = command.split(' ')[1];
@@ -90,6 +115,7 @@ const App = () => {
 			<Gradient name="pastel">
 				<BigText text={currentMessages.title} />
 			</Gradient>
+			<Text>Copyright © 2025 Rex Tsou. All Rights Reserved.</Text>
 
 			{showHelp ? (
 				<Box flexDirection="column" marginTop={1}>
@@ -103,12 +129,14 @@ const App = () => {
 				<Text>{currentMessages.welcome}</Text>
 			)}
 
-			<Box marginTop={1}>
+			<Box marginTop={1} borderStyle="round" borderColor="blue" paddingX={1} paddingY={0}>
 				<Text>&gt; </Text>
 				<TextInput
+					key={command}
 					value={command}
 					onChange={setCommand}
 					onSubmit={handleSubmit}
+					placeholder="Type a command..."
 				/>
 			</Box>
 		</Box>
