@@ -5,6 +5,7 @@ import BigText from 'ink-big-text';
 import Gradient from 'ink-gradient';
 import SelectInput from 'ink-select-input';
 import open from 'open';
+import { Colors } from './colors.js';
 
 const App = () => {
 	const [language, setLanguage] = useState('en');
@@ -70,9 +71,9 @@ const App = () => {
 			back: 'Back',
 			helpTitle: 'Available Commands:',
 			helpEntry: 'Show options menu',
-      helpLang: 'Switch language',
-      helpHelp: 'Show this help message',
-      helpQuit: 'Exit the application',
+			helpLang: 'Switch language',
+			helpHelp: 'Show this help message',
+			helpQuit: 'Exit the application',
 			website: 'Website',
 			blog: 'Blog',
 			github: 'GitHub',
@@ -82,10 +83,10 @@ const App = () => {
 			welcome: '歡迎！輸入 /help 查看指令列表。',
 			back: '返回',
 			helpTitle: '可用指令：',
-      helpEntry: '顯示選項選單',
-      helpLang: '切換語言',
-      helpHelp: '顯示此幫助訊息',
-      helpQuit: '離開應用程式',
+			helpEntry: '顯示選項選單',
+			helpLang: '切換語言',
+			helpHelp: '顯示此幫助訊息',
+			helpQuit: '離開應用程式',
 			website: '個人網站',
 			blog: '技術部落格',
 			github: 'GitHub',
@@ -118,7 +119,13 @@ const App = () => {
 			<Text>Copyright © 2025 Rex Tsou. All Rights Reserved.</Text>
 
 			{showHelp ? (
-				<Box flexDirection="column" marginTop={1}>
+				<Box
+					flexDirection="column"
+					marginTop={1}
+					borderColor={Colors.Gray}
+					borderStyle="round"
+					padding={1}
+				>
 					<Text bold>{currentMessages.helpTitle}</Text>
 					<Box><Box width={25}><Text>  /entry</Text></Box><Text>- {currentMessages.helpEntry}</Text></Box>
 					<Box><Box width={25}><Text>  /language [en|zh-TW]</Text></Box><Text>- {currentMessages.helpLang}</Text></Box>
@@ -126,17 +133,24 @@ const App = () => {
 					<Box><Box width={25}><Text>  /quit</Text></Box><Text>- {currentMessages.helpQuit}</Text></Box>
 				</Box>
 			) : (
-				<Text>{currentMessages.welcome}</Text>
+				<Box flexDirection="column" marginTop={3}>
+					<Text marginTop={3}>{currentMessages.welcome}</Text>
+				</Box>
 			)}
 
-			<Box marginTop={1} borderStyle="round" borderColor="blue" paddingX={1} paddingY={0}>
+			<Box
+				marginTop={1}
+				borderStyle="round"
+				borderColor={Colors.LightBlue}
+				paddingX={1}
+				paddingY={0}>
 				<Text>&gt; </Text>
 				<TextInput
 					key={command}
 					value={command}
 					onChange={setCommand}
 					onSubmit={handleSubmit}
-					placeholder="Type a command..."
+					placeholder="  Type a command... (<Tab> to autocomplete)"
 				/>
 			</Box>
 		</Box>
