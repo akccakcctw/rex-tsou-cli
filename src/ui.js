@@ -4,7 +4,7 @@ import TextInput from 'ink-text-input';
 import BigText from 'ink-big-text';
 import Gradient from 'ink-gradient';
 import { Colors } from './colors.js';
-import { messages } from './messages.js';
+import { getT } from './i18n.js';
 import EntryPage from './pages/EntryPage.js';
 import AboutPage from './pages/AboutPage.js';
 import Help from './components/Help.js';
@@ -15,6 +15,7 @@ const App = () => {
 	const [view, setView] = useState('main'); // main, entry, or about
 	const [showHelp, setShowHelp] = useState(false);
 	const autocompleteIndex = useRef(0);
+	const t = getT(language);
 
 	const availableCommands = [
 		'/language',
@@ -46,7 +47,7 @@ const App = () => {
 
 		if (command.startsWith('/language')) {
 			const newLang = command.split(' ')[1];
-			if (newLang === 'en' || newLang === 'zh-TW') {
+			if (newLang === 'en' || newLang === 'zhTW') {
 				setLanguage(newLang);
 			}
 		} else if (command === '/entry') {
@@ -61,28 +62,26 @@ const App = () => {
 		setCommand('');
 	};
 
-	const currentMessages = language === 'zh-TW' ? messages.zhTW : messages.en;
-
 	if (view === 'entry') {
-		return <EntryPage currentMessages={currentMessages} setView={setView} />;
+		return <EntryPage t={t} setView={setView} />;
 	}
 
 	if (view === 'about') {
-		return <AboutPage currentMessages={currentMessages} setView={setView} />;
+		return <AboutPage t={t} setView={setView} />;
 	}
 
 	return (
 		<Box flexDirection="column" padding={2}>
 			<Gradient name="pastel">
-				<BigText text={currentMessages.title} />
+				<BigText text={t('title')} />
 			</Gradient>
 			<Text>Copyright © 2025 Rex Tsou. All Rights Reserved.</Text>
 
 			{showHelp ? (
-				<Help currentMessages={currentMessages} />
+				<Help t={t} />
 			) : (
 				<Box flexDirection="column" marginTop={3}>
-					<Text marginTop={3}>{currentMessages.welcome}</Text>
+					<Text marginTop={3}>{t('welcome')}</Text>
 				</Box>
 			)}
 

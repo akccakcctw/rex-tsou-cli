@@ -1,4 +1,4 @@
-export const messages = {
+const messages = {
 	en: {
 		title: 'Rex Tsou',
 		welcome: 'Welcome! Type /help for a list of commands.',
@@ -31,4 +31,9 @@ export const messages = {
 		aboutTitle: '測試',
 		aboutContent: 'Hello World!',
 	},
+};
+
+export const getT = (language) => (key) => {
+	const langMessages = messages[language] || messages.en;
+	return langMessages[key];
 };

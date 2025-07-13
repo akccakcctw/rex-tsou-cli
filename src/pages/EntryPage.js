@@ -3,7 +3,7 @@ import { Box } from 'ink';
 import SelectInput from 'ink-select-input';
 import open from 'open';
 
-const EntryPage = ({ currentMessages, setView }) => {
+const EntryPage = ({ t, setView }) => {
 	const handleSelect = item => {
 		if (item.url) {
 			open(item.url);
@@ -13,11 +13,11 @@ const EntryPage = ({ currentMessages, setView }) => {
 	};
 
 	const entryItems = [
-		{ key: 'website', label: currentMessages.website, url: 'https://rex-tsou.com' },
-		{ key: 'blog', label: currentMessages.blog, url: 'https://blog.rex-tsou.com' },
-		{ key: 'github', label: currentMessages.github, url: 'https://github.com/akccakcctw' },
+		{ key: 'website', label: t('website'), url: 'https://rex-tsou.com' },
+		{ key: 'blog', label: t('blog'), url: 'https://blog.rex-tsou.com' },
+		{ key: 'github', label: t('github'), url: 'https://github.com/akccakcctw' },
 		{ key: 'separator', label: '----------' },
-		{ key: 'back', label: currentMessages.back, action: () => setView('main') },
+		{ key: 'back', label: t('back'), action: () => setView('main') },
 	];
 
 	return (
