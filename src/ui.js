@@ -3,14 +3,16 @@ import { Text, Box, useInput } from 'ink';
 import TextInput from 'ink-text-input';
 import BigText from 'ink-big-text';
 import Gradient from 'ink-gradient';
-import SelectInput from 'ink-select-input';
-import open from 'open';
 import { Colors } from './colors.js';
+import { messages } from './messages.js';
+import EntryPage from './pages/EntryPage.js';
+import AboutPage from './pages/AboutPage.js';
+import Help from './components/Help.js';
 
 const App = () => {
 	const [language, setLanguage] = useState('en');
 	const [command, setCommand] = useState('');
-	const [view, setView] = useState('main'); // main or entry
+	const [view, setView] = useState('main'); // main, entry, or about
 	const [showHelp, setShowHelp] = useState(false);
 	const autocompleteIndex = useRef(0);
 
@@ -59,77 +61,14 @@ const App = () => {
 		setCommand('');
 	};
 
-	const handleSelect = item => {
-		if (item.url) {
-			open(item.url);
-		} else if (item.action) {
-			item.action();
-		}
-	};
-
-	const messages = {
-		en: {
-			title: 'Rex Tsou',
-			welcome: 'Welcome! Type /help for a list of commands.',
-			back: 'Back',
-			helpTitle: 'Available Commands:',
-			helpEntry: 'Show options menu',
-			helpLang: 'Switch language',
-			helpHelp: 'Show this help message',
-			helpAbout: 'Show about message',
-			helpQuit: 'Exit the application',
-			website: 'Website',
-			blog: 'Blog',
-			github: 'GitHub',
-			aboutTitle: 'Test',
-			aboutContent: 'Hello World!',
-		},
-		zhTW: {
-			title: 'Rex Tsou',
-			welcome: '歡迎！輸入 /help 查看指令列表。',
-			back: '返回',
-			helpTitle: '可用指令：',
-			helpEntry: '顯示選項選單',
-			helpLang: '切換語言',
-			helpHelp: '顯示此幫助訊息',
-			helpAbout: '顯示關於訊息',
-			helpQuit: '離開應用程式',
-			website: '個人網站',
-			blog: '技術部落格',
-			github: 'GitHub',
-			aboutTitle: '測試',
-			aboutContent: 'Hello World!',
-		},
-	};
-
 	const currentMessages = language === 'zh-TW' ? messages.zhTW : messages.en;
 
-	const entryItems = [
-		{ key: 'website', label: currentMessages.website, url: 'https://rex-tsou.com' },
-		{ key: 'blog', label: currentMessages.blog, url: 'https://blog.rex-tsou.com' },
-		{ key: 'github', label: currentMessages.github, url: 'https://github.com/akccakcctw' },
-		{ key: 'separator', label: '----------' },
-		{ key: 'back', label: currentMessages.back, action: () => setView('main') },
-	];
-
-	if (view === 'about') {
-		return (
-			<Box flexDirection="column" padding={2}>
-				<Box flexDirection="column" paddingBottom={1}>
-					<Text bold>{currentMessages.aboutTitle}</Text>
-					<Text>{currentMessages.aboutContent}</Text>
-				</Box>
-				<SelectInput items={[{ key: 'back', label: currentMessages.back, action: () => setView('main') }]} onSelect={handleSelect} />
-			</Box>
-		);
+	if (view === 'entry') {
+		return <EntryPage currentMessages={currentMessages} setView={setView} />;
 	}
 
-	if (view === 'entry') {
-		return (
-			<Box flexDirection="column" padding={2}>
-				<SelectInput items={entryItems} onSelect={handleSelect} />
-			</Box>
-		);
+	if (view === 'about') {
+		return <AboutPage currentMessages={currentMessages} setView={setView} />;
 	}
 
 	return (
@@ -140,20 +79,7 @@ const App = () => {
 			<Text>Copyright © 2025 Rex Tsou. All Rights Reserved.</Text>
 
 			{showHelp ? (
-				<Box
-					flexDirection="column"
-					marginTop={1}
-					borderColor={Colors.Gray}
-					borderStyle="round"
-					padding={1}
-				>
-					<Text bold>{currentMessages.helpTitle}</Text>
-					<Box><Box width={25}><Text>  /entry</Text></Box><Text>- {currentMessages.helpEntry}</Text></Box>
-					<Box><Box width={25}><Text>  /language [en|zh-TW]</Text></Box><Text>- {currentMessages.helpLang}</Text></Box>
-					<Box><Box width={25}><Text>  /help</Text></Box><Text>- {currentMessages.helpHelp}</Text></Box>
-					<Box><Box width={25}><Text>  /about</Text></Box><Text>- {currentMessages.helpAbout}</Text></Box>
-					<Box><Box width={25}><Text>  /quit</Text></Box><Text>- {currentMessages.helpQuit}</Text></Box>
-				</Box>
+				<Help currentMessages={currentMessages} />
 			) : (
 				<Box flexDirection="column" marginTop={3}>
 					<Text marginTop={3}>{currentMessages.welcome}</Text>
