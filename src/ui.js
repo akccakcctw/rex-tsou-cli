@@ -8,6 +8,7 @@ import { getT } from './i18n.js';
 import EntryPage from './pages/EntryPage.js';
 import AboutPage from './pages/AboutPage.js';
 import Help from './components/Help.js';
+import PageWrapper from './components/PageWrapper.js';
 
 const App = () => {
 	const [language, setLanguage] = useState('en');
@@ -77,13 +78,15 @@ const App = () => {
 			</Gradient>
 			<Text>Copyright © 2025 Rex Tsou. All Rights Reserved.</Text>
 
-			{showHelp ? (
-				<Help t={t} />
-			) : (
-				<Box flexDirection="column" marginTop={3}>
-					<Text marginTop={3}>{t('welcome')}</Text>
-				</Box>
-			)}
+			<Box marginTop={1}>
+				{showHelp ? (
+					<Help t={t} />
+				) : (
+					<PageWrapper>
+						<Text>{t('welcome')}</Text>
+					</PageWrapper>
+				)}
+			</Box>
 
 			<Box
 				marginTop={1}

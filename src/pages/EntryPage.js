@@ -2,6 +2,7 @@ import React from 'react';
 import { Box } from 'ink';
 import SelectInput from 'ink-select-input';
 import open from 'open';
+import PageWrapper from '../components/PageWrapper.js';
 
 const EntryPage = ({ t, setView }) => {
 	const handleSelect = item => {
@@ -21,9 +22,9 @@ const EntryPage = ({ t, setView }) => {
 	];
 
 	return (
-		<Box flexDirection="column" padding={2}>
+		<PageWrapper>
 			<SelectInput items={entryItems} onSelect={handleSelect} />
-		</Box>
+		</PageWrapper>
 	);
 };
 
