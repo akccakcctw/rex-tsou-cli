@@ -12,8 +12,29 @@ const messages = {
 		website: 'Website',
 		blog: 'Blog',
 		github: 'GitHub',
-		aboutTitle: 'Test',
-		aboutContent: 'Hello World!',
+		aboutTitle: 'About Me',
+		aboutContent: `
+Graduated from the Chinese Literature Department at National Chengchi University. I enjoy reading and writing, have won a few small literary awards, and have a strong opinion on the quality and form of poetry.
+
+I previously worked as the content editor for the "udn.com" website and as a front-end engineer at "Travel Alliance Information". Currently, I am the leader of the front-end architecture team at "KKday", specializing in web UI presentation and interaction technologies, and pursuing a friendly and smooth user experience with my outstanding team members.
+
+I like to challenge the unknown and break out of the box, with a passion for open-source and decentralization concepts. In my spare time, I enjoy traveling, cultural activities, hiking, rock climbing, and playing computer games.
+
+---
+
+Work Experience
+
+KKday (Dec 2017 - Present)
+Front-End Engineer
+
+Travel Alliance Information Inc. (Apr 2016 - Jun 2017)
+Front-End Developer
+- Front-end web development, CMS backend development
+
+udn.com Co.Ltd. (Oct 2014 - Dec 2015)
+Online Content Editor, Project Manager
+- Product manager, content planner, interviewer, writer and editor
+`,
 	},
 	zhTW: {
 		title: 'Rex Tsou',
@@ -28,8 +49,27 @@ const messages = {
 		website: '個人網站',
 		blog: '技術部落格',
 		github: 'GitHub',
-		aboutTitle: '測試',
-		aboutContent: 'Hello World!',
+		aboutTitle: '關於我',
+		aboutContent: `
+政大中文系畢業，喜歡閱讀與寫作並得過幾個小小的文學獎，對詩的好壞與形式有強烈的偏執。
+
+曾任「udn 讀.書.人」網站內容主編，「旅盟資訊」前端工程師。現爲「KKday」前端架構組組長，專研網頁畫面呈現及互動技術，與優秀的團隊成員一同追求友善流暢的使用者體驗。
+
+喜歡挑戰未知、突破框架，熱愛開源與去中心化理念。空閒時間喜歡旅遊、藝文活動、登山、攀岩、玩電腦遊戲。
+
+---
+
+工作經歷
+
+KKday (2017年12月 - 至今)
+前端工程師
+
+旅盟資訊 (2016年4月 - 2017年6月)
+前端網頁開發、CMS後台開發
+
+聯合線上 udn.com (2014年10月 - 2015年12月)
+產品經理、內容企劃、採訪、撰稿與編輯
+`,
 	},
 };
 
@@ -37,3 +77,4 @@ export const getT = (language) => (key) => {
 	const langMessages = messages[language] || messages.en;
 	return langMessages[key];
 };
+''
