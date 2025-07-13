@@ -19,6 +19,7 @@ const App = () => {
 		'/entry',
 		'/quit',
 		'/help',
+		'/about',
 	];
 
 	useInput((input, key) => {
@@ -52,6 +53,8 @@ const App = () => {
 			process.exit(0);
 		} else if (command === '/help') {
 			setShowHelp(true);
+		} else if (command === '/about') {
+			setView('about');
 		}
 		setCommand('');
 	};
@@ -73,10 +76,13 @@ const App = () => {
 			helpEntry: 'Show options menu',
 			helpLang: 'Switch language',
 			helpHelp: 'Show this help message',
+			helpAbout: 'Show about message',
 			helpQuit: 'Exit the application',
 			website: 'Website',
 			blog: 'Blog',
 			github: 'GitHub',
+			aboutTitle: 'Test',
+			aboutContent: 'Hello World!',
 		},
 		zhTW: {
 			title: 'Rex Tsou',
@@ -86,10 +92,13 @@ const App = () => {
 			helpEntry: '顯示選項選單',
 			helpLang: '切換語言',
 			helpHelp: '顯示此幫助訊息',
+			helpAbout: '顯示關於訊息',
 			helpQuit: '離開應用程式',
 			website: '個人網站',
 			blog: '技術部落格',
 			github: 'GitHub',
+			aboutTitle: '測試',
+			aboutContent: 'Hello World!',
 		},
 	};
 
@@ -102,6 +111,18 @@ const App = () => {
 		{ key: 'separator', label: '----------' },
 		{ key: 'back', label: currentMessages.back, action: () => setView('main') },
 	];
+
+	if (view === 'about') {
+		return (
+			<Box flexDirection="column" padding={2}>
+				<Box flexDirection="column" paddingBottom={1}>
+					<Text bold>{currentMessages.aboutTitle}</Text>
+					<Text>{currentMessages.aboutContent}</Text>
+				</Box>
+				<SelectInput items={[{ key: 'back', label: currentMessages.back, action: () => setView('main') }]} onSelect={handleSelect} />
+			</Box>
+		);
+	}
 
 	if (view === 'entry') {
 		return (
@@ -130,6 +151,7 @@ const App = () => {
 					<Box><Box width={25}><Text>  /entry</Text></Box><Text>- {currentMessages.helpEntry}</Text></Box>
 					<Box><Box width={25}><Text>  /language [en|zh-TW]</Text></Box><Text>- {currentMessages.helpLang}</Text></Box>
 					<Box><Box width={25}><Text>  /help</Text></Box><Text>- {currentMessages.helpHelp}</Text></Box>
+					<Box><Box width={25}><Text>  /about</Text></Box><Text>- {currentMessages.helpAbout}</Text></Box>
 					<Box><Box width={25}><Text>  /quit</Text></Box><Text>- {currentMessages.helpQuit}</Text></Box>
 				</Box>
 			) : (
