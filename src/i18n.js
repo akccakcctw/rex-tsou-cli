@@ -13,17 +13,15 @@ const messages = {
 		blog: 'Blog',
 		github: 'GitHub',
 		aboutTitle: 'About Me',
-		aboutContent: `
+		aboutIntro: `
 Graduated from the Chinese Literature Department at National Chengchi University. I enjoy reading and writing, have won a few small literary awards, and have a strong opinion on the quality and form of poetry.
 
 I previously worked as the content editor for the "udn.com" website and as a front-end engineer at "Travel Alliance Information". Currently, I am the leader of the front-end architecture team at "KKday", specializing in web UI presentation and interaction technologies, and pursuing a friendly and smooth user experience with my outstanding team members.
 
 I like to challenge the unknown and break out of the box, with a passion for open-source and decentralization concepts. In my spare time, I enjoy traveling, cultural activities, hiking, rock climbing, and playing computer games.
-
----
-
-Work Experience
-
+`,
+		aboutWorkExperienceTitle: 'Work Experience',
+		aboutWorkExperienceContent: `
 KKday (Dec 2017 - Present)
 Front-End Engineer
 
@@ -50,17 +48,15 @@ Online Content Editor, Project Manager
 		blog: '技術部落格',
 		github: 'GitHub',
 		aboutTitle: '關於我',
-		aboutContent: `
+		aboutIntro: `
 政大中文系畢業，喜歡閱讀與寫作並得過幾個小小的文學獎，對詩的好壞與形式有強烈的偏執。
 
 曾任「udn 讀.書.人」網站內容主編，「旅盟資訊」前端工程師。現爲「KKday」前端架構組組長，專研網頁畫面呈現及互動技術，與優秀的團隊成員一同追求友善流暢的使用者體驗。
 
 喜歡挑戰未知、突破框架，熱愛開源與去中心化理念。空閒時間喜歡旅遊、藝文活動、登山、攀岩、玩電腦遊戲。
-
----
-
-工作經歷
-
+`,
+		aboutWorkExperienceTitle: '工作經歷',
+		aboutWorkExperienceContent: `
 KKday (2017年12月 - 至今)
 前端工程師
 
