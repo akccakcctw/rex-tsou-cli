@@ -4,7 +4,8 @@
   "description": "All about Rex Tsou with command-line",
   "type": "module",
   "scripts": {
-    "build": "rimraf dist && babel src --out-dir dist"
+    "build": "rimraf dist && babel src --out-dir dist",
+    "prepublishOnly": "pnpm build"
   },
   "keywords": [
     "cli"
