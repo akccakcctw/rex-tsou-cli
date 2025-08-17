@@ -23,13 +23,14 @@ I like to challenge the unknown and break out of the box, with a passion for ope
 		aboutWorkExperienceTitle: 'Work Experience',
 		aboutWorkExperienceContent: `
 KKday (Dec 2017 - Present)
-Front-End Engineer
+- Front-End Team Lead (Jul 2024 - Present)
+- Front-End Engineer (Dec 2017 - Jul 2024)
 
-Travel Alliance Information Inc. (Apr 2016 - Jun 2017)
-Front-End Developer
+Lemon info. Tech. Co., Ltd (Apr 2016 - Jun 2017)
+- Front-End Developer
 - Front-end web development, CMS backend development
 
-udn.com Co.Ltd. (Oct 2014 - Dec 2015)
+udn.com (Oct 2014 - Dec 2015)
 Online Content Editor, Project Manager
 - Product manager, content planner, interviewer, writer and editor
 `,
@@ -57,14 +58,15 @@ Online Content Editor, Project Manager
 `,
 		aboutWorkExperienceTitle: '工作經歷',
 		aboutWorkExperienceContent: `
-KKday (2017年12月 - 至今)
-前端工程師
+KKday（2017 年 12 月 - 至今）
+- 前端架構組組長（2024 年 7 月 - 至今）
+- 前端工程師（2017 年 12 月 - 2024 年 7 月）
 
-旅盟資訊 (2016年4月 - 2017年6月)
-前端網頁開發、CMS後台開發
+旅盟資訊（2016 年 4 月 - 2017 年 6 月）
+- 前端網頁開發、CMS後台開發
 
-聯合線上 udn.com (2014年10月 - 2015年12月)
-產品經理、內容企劃、採訪、撰稿與編輯
+聯合線上 udn.com（2014 年 10 月 - 2015 年 12 月）
+- 產品經理、內容企劃、採訪、撰稿與編輯
 `,
 	},
 };
